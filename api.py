@@ -1,19 +1,13 @@
 from flask import Flask, request, jsonify
 import pandas as pd
-from fastapi.middleware.cors import CORSMiddleware  # ✅ ADD THIS
+from flask_cors import CORS  # ✅ ADD THIS
 from xgboost import XGBRegressor
 import warnings
 import os
 
 # Initialize Flask app
 app = Flask(__name__)
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins (change this if needed)
-    allow_credentials=True,
-    allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
-    allow_headers=["*"],  # Allow all headers
-)
+CORS(app)
 
 # Load the trained XGBoost model
 xgb_model = XGBRegressor()

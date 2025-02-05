@@ -16,7 +16,7 @@ warnings.filterwarnings("ignore", message=".*__sklearn_tags__.*")
 xgb_model = XGBRegressor()
 try:
     print("Loading model from: ./gb_model.json")
-    xgb_model.load_model('./gb_model.json')  # Ensure the correct model format
+    xgb_model.load_model('./gb_model.bst')  # Ensure the correct model format
     print("✅ Model loaded successfully!")
 except Exception as e:
     print(f"❌ Error loading model: {str(e)}")
